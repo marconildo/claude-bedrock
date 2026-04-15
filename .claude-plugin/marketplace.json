@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "bedrock",
-      "source": ".",
+      "source": "./",
       "description": "Second Brain automation for Obsidian vaults — entity management, ingestion, compression, and sync via Claude Code skills",
       "version": "1.0.0",
       "author": {
