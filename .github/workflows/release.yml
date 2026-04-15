@@ -64,5 +64,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "v${{ steps.next.outputs.version }}" \
+            --target main \
             --title "v${{ steps.next.outputs.version }}" \
             --generate-notes
