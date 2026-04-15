@@ -200,29 +200,54 @@
     .hero .tagline-obsidian a { color: var(--accent); border-bottom: 1px solid var(--accent-border-subtle); transition: border-color 0.2s, color 0.2s; }
     .hero .tagline-obsidian a:hover { border-color: var(--accent); }
 
-    .hero-cta {
-      display: inline-flex; align-items: center; gap: 0;
-      background: var(--bg-alt); border: 1px solid var(--border);
-      border-radius: 10px; overflow: hidden;
+    .hero-terminal {
+      display: inline-block; text-align: left;
+      background: var(--bg-deep); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden; width: 100%; max-width: 540px;
       transition: border-color 0.25s, box-shadow 0.25s, background 0.3s;
     }
-    .hero-cta:hover { border-color: var(--accent-border-med); box-shadow: 0 0 20px var(--accent-glow); }
+    .hero-terminal:hover { border-color: var(--accent-border-med); box-shadow: 0 0 24px var(--accent-glow); }
 
-    .hero-cta .prompt {
-      color: var(--prompt-color); padding-left: 18px;
+    .terminal-header {
+      display: flex; align-items: center; gap: 7px;
+      padding: 11px 16px; background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-dot.red { background: #ff5f57; }
+    .terminal-dot.yellow { background: #febc2e; }
+    .terminal-dot.green { background: #28c840; }
+    .terminal-title {
+      flex: 1; text-align: center; font-size: 0.72rem; color: var(--text-faint);
       font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
-      font-size: 0.88rem; user-select: none;
+      margin-right: 42px;
     }
-    .hero-cta code { padding: 14px 10px 14px 8px; font-size: 0.88rem; color: var(--text); user-select: all; }
 
-    .hero-cta .copy-btn, .install-primary .copy-btn {
-      padding: 14px 16px; background: none; border: none; border-left: 1px solid var(--border);
-      color: var(--text-faint); cursor: pointer; font-size: 1rem;
-      transition: color 0.2s, background 0.2s;
-      display: flex; align-items: center; min-width: 46px; justify-content: center;
+    .terminal-body { padding: 18px 20px; }
+
+    .terminal-line {
+      display: flex; align-items: center; gap: 0;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.85rem; line-height: 2;
     }
-    .hero-cta .copy-btn:hover, .install-primary .copy-btn:hover { color: var(--accent); background: var(--accent-glow); }
-    .hero-cta .copy-btn.copied, .install-primary .copy-btn.copied { color: var(--success); }
+    .terminal-line .prompt { color: var(--accent); user-select: none; margin-right: 8px; }
+    .terminal-line code { color: var(--text); user-select: all; background: none; }
+    .terminal-line .cmd { color: var(--text-muted); }
+    .terminal-line .arg { color: var(--text); }
+    .terminal-line .flag { color: var(--success); }
+
+    .terminal-copy {
+      display: flex; justify-content: flex-end; padding: 0 16px 12px;
+    }
+    .terminal-copy .copy-btn {
+      padding: 6px 12px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text-faint); cursor: pointer; font-size: 0.72rem;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .terminal-copy .copy-btn:hover { color: var(--accent); background: var(--accent-bg); border-color: var(--accent-border); }
+    .terminal-copy .copy-btn.copied { color: var(--success); border-color: var(--success); }
+
 
     .scroll-hint {
       position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
@@ -283,28 +308,7 @@
       border-bottom: 1px solid var(--border-subtle); text-align: center; transition: background 0.3s;
     }
     .install-section .section-subtitle { margin-left: auto; margin-right: auto; }
-    .install-block { max-width: 560px; margin: 0 auto; }
-
-    .install-primary {
-      display: flex; align-items: center;
-      background: var(--bg-deep); border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden; margin-bottom: 16px;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.3s;
-    }
-    .install-primary:hover { border-color: var(--accent-border-med); box-shadow: 0 0 20px var(--accent-glow); }
-    .install-primary .prompt { color: var(--accent); padding-left: 20px; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 0.9rem; user-select: none; }
-    .install-primary code { flex: 1; padding: 18px 12px; font-size: 0.88rem; color: var(--text); user-select: all; }
-    .install-primary .copy-btn { padding: 18px; min-width: 52px; }
-
-    .install-alt { font-size: 0.82rem; color: var(--text-faint); margin-bottom: 24px; }
-    .install-alt code { color: var(--text-muted); font-size: 0.8rem; }
-
-    .install-next {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent-bg); border: 1px solid var(--accent-border-subtle);
-      border-radius: 8px; padding: 12px 20px; font-size: 0.85rem; color: var(--text-muted);
-    }
-    .install-next code { color: var(--accent); font-size: 0.82rem; }
+    .install-section .hero-terminal { background: var(--bg-deep); }
 
     /* ============================================
        OBSIDIAN CALLOUT
@@ -362,9 +366,10 @@
       .hero h1 { font-size: 2.8rem; }
       .hero .tagline { font-size: 1.05rem; margin-bottom: 16px; }
       .hero .tagline-obsidian { margin-bottom: 36px; font-size: 0.88rem; }
-      .hero-cta code { font-size: 0.75rem; padding: 12px 8px 12px 6px; }
-      .hero-cta .prompt { padding-left: 14px; font-size: 0.75rem; }
-      .hero-cta .copy-btn { padding: 12px 12px; }
+      .hero-terminal { max-width: 100%; }
+      .terminal-line { font-size: 0.75rem; }
+      .terminal-body { padding: 14px 14px; }
+      .terminal-title { margin-right: 28px; }
       .hero-badges { gap: 8px; }
       .hero-badge { font-size: 0.72rem; padding: 5px 12px; }
 
@@ -375,9 +380,6 @@
       .use-cases-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .skill-card { padding: 22px; }
-
-      .install-primary code { font-size: 0.75rem; padding: 14px 8px; }
-      .install-primary .prompt { padding-left: 14px; font-size: 0.75rem; }
 
       .obsidian-callout-inner { flex-direction: column; text-align: center; padding: 20px 24px; }
       .obsidian-callout-text { text-align: center; }
@@ -393,7 +395,7 @@
 
     @media (max-width: 420px) {
       .skills-grid { grid-template-columns: 1fr; }
-      .hero-cta code { font-size: 0.65rem; }
+      .terminal-line { font-size: 0.65rem; }
       .hero h1 { font-size: 2.2rem; }
     }
   </style>
@@ -453,12 +455,24 @@
       <h1><span class="accent">Bedrock</span></h1>
       <p class="tagline" data-i18n="hero_tagline">Turn any Obsidian vault into a structured Second Brain.<br>7 entity types. 6 skills. Zero config.</p>
       <p class="tagline-obsidian" data-i18n="hero_requires">Requires <a href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a> and <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a></p>
-      <div class="hero-cta">
-        <span class="prompt">$</span>
-        <code>/plugin marketplace add iurykrieger/claude-bedrock</code>
-        <button class="copy-btn" data-copy="/plugin marketplace add iurykrieger/claude-bedrock" aria-label="Copy install command">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5h2"/></svg>
-        </button>
+      <div class="hero-terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">claude</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">&gt;</span> <code><span class="cmd">/plugin marketplace add</span> <span class="arg">iurykrieger/claude-bedrock</span></code></div>
+          <div class="terminal-line"><span class="prompt">&gt;</span> <code><span class="cmd">/plugin install</span> <span class="arg">bedrock@claude-bedrock</span></code></div>
+          <div class="terminal-line"><span class="prompt">&gt;</span> <code><span class="cmd">/bedrock:setup</span></code></div>
+        </div>
+        <div class="terminal-copy">
+          <button class="copy-btn" data-copy="/plugin marketplace add iurykrieger/claude-bedrock&#10;/plugin install bedrock@claude-bedrock&#10;/bedrock:setup" aria-label="Copy all commands">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5h2"/></svg>
+            Copy
+          </button>
+        </div>
       </div>
     </div>
     <div class="scroll-hint" aria-hidden="true">&#8595;</div>
@@ -477,7 +491,7 @@
         <div class="workflow-arrow">&#8594;</div>
         <div class="workflow-step"><div class="step-icon">&#128279;</div><div class="step-name">preserve</div><div class="step-desc" data-i18n="wf_preserve">Create entities with bidirectional links</div></div>
         <div class="workflow-arrow">&#8594;</div>
-        <div class="workflow-step"><div class="step-icon">&#128269;</div><div class="step-name">query</div><div class="step-desc" data-i18n="wf_query">Search and cross-reference your vault</div></div>
+        <div class="workflow-step"><div class="step-icon">&#128269;</div><div class="step-name">ask</div><div class="step-desc" data-i18n="wf_ask">Search and cross-reference your vault</div></div>
         <div class="workflow-arrow">&#8594;</div>
         <div class="workflow-step"><div class="step-icon">&#9878;</div><div class="step-name">compress</div><div class="step-desc" data-i18n="wf_compress">Deduplicate and consolidate entities</div></div>
         <div class="workflow-arrow">&#8594;</div>
@@ -506,17 +520,25 @@
     <div class="container">
       <div class="section-label" data-i18n="inst_label">Get Started</div>
       <h2 class="section-title" data-i18n="inst_title">Up and running in seconds</h2>
-      <p class="section-subtitle" data-i18n="inst_subtitle">Add the marketplace, install the plugin, set up your vault. That's it.</p>
-      <div class="install-block">
-        <div class="install-primary">
-          <span class="prompt">$</span>
-          <code>/plugin marketplace add iurykrieger/claude-bedrock</code>
-          <button class="copy-btn" data-copy="/plugin marketplace add iurykrieger/claude-bedrock" aria-label="Copy install command">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5h2"/></svg>
+      <p class="section-subtitle" data-i18n="inst_subtitle">Three commands. That's it.</p>
+      <div class="hero-terminal" style="max-width: 560px; margin: 0 auto;">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">claude</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">&gt;</span> <code><span class="cmd">/plugin marketplace add</span> <span class="arg">iurykrieger/claude-bedrock</span></code></div>
+          <div class="terminal-line"><span class="prompt">&gt;</span> <code><span class="cmd">/plugin install</span> <span class="arg">bedrock@claude-bedrock</span></code></div>
+          <div class="terminal-line"><span class="prompt">&gt;</span> <code><span class="cmd">/bedrock:setup</span></code></div>
+        </div>
+        <div class="terminal-copy">
+          <button class="copy-btn" data-copy="/plugin marketplace add iurykrieger/claude-bedrock&#10;/plugin install bedrock@claude-bedrock&#10;/bedrock:setup" aria-label="Copy all commands">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3.5a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5h2"/></svg>
+            Copy
           </button>
         </div>
-        <div class="install-alt" data-i18n="inst_alt">Then install the plugin: <code>/plugin install iurykrieger/claude-bedrock</code></div>
-        <div class="install-next" data-i18n="inst_next">Then run <code>/bedrock:setup</code> to initialize your vault</div>
       </div>
     </div>
   </section>
@@ -579,7 +601,7 @@
         workflow_label: 'How It Works', workflow_title: 'Six skills, one workflow',
         workflow_subtitle: 'Set up your vault, ingest knowledge from any source, and let Bedrock keep it organized.',
         wf_setup: 'Initialize vault structure and templates', wf_teach: 'Ingest from Confluence, GDocs, GitHub',
-        wf_preserve: 'Create entities with bidirectional links', wf_query: 'Search and cross-reference your vault',
+        wf_preserve: 'Create entities with bidirectional links', wf_ask: 'Search and cross-reference your vault',
         wf_compress: 'Deduplicate and consolidate entities', wf_sync: 'Re-sync with external sources',
         uc_label: 'Built For', uc_title: 'Your knowledge, structured',
         uc_subtitle: 'Bedrock adapts to any team or individual workflow where knowledge sprawl is a problem.',
@@ -588,9 +610,7 @@
         uc3_title: 'Open Source Project', uc3_desc: 'Document contributors, architecture decisions, and discussions. Ingest from GitHub PRs and issues directly into structured entities.',
         uc4_title: 'Personal Second Brain', uc4_desc: 'Fleeting ideas get captured, promoted to permanent notes, and linked into your growing knowledge graph. Zettelkasten principles, automated.',
         inst_label: 'Get Started', inst_title: 'Up and running in seconds',
-        inst_subtitle: "Add the marketplace, install the plugin, set up your vault. That's it.",
-        inst_alt: 'Then install the plugin: <code>/plugin install iurykrieger/claude-bedrock</code>',
-        inst_next: 'Then run <code>/bedrock:setup</code> to initialize your vault',
+        inst_subtitle: "Three commands. That's it.",
         sk_label: 'Skills', sk_title: 'Everything you need to manage knowledge',
         sk_subtitle: "Each skill is a specialized agent that reads your vault conventions and acts accordingly.",
         sk_setup: 'Interactive wizard to scaffold directories, templates, and example entities. Pick a preset or go custom.',
@@ -610,7 +630,7 @@
         workflow_label: 'Como Funciona', workflow_title: 'Seis skills, um fluxo',
         workflow_subtitle: 'Configure seu vault, ingira conhecimento de qualquer fonte e deixe o Bedrock manter tudo organizado.',
         wf_setup: 'Inicializa estrutura e templates do vault', wf_teach: 'Ingere do Confluence, GDocs, GitHub',
-        wf_preserve: 'Cria entidades com links bidirecionais', wf_query: 'Busca e cruza refer\u00eancias no vault',
+        wf_preserve: 'Cria entidades com links bidirecionais', wf_ask: 'Busca e cruza refer\u00eancias no vault',
         wf_compress: 'Deduplica e consolida entidades', wf_sync: 'Re-sincroniza com fontes externas',
         uc_label: 'Feito Para', uc_title: 'Seu conhecimento, estruturado',
         uc_subtitle: 'O Bedrock se adapta a qualquer fluxo de time ou individual onde o conhecimento est\u00e1 disperso.',
@@ -619,9 +639,7 @@
         uc3_title: 'Projeto Open Source', uc3_desc: 'Documente contribuidores, decis\u00f5es de arquitetura e discuss\u00f5es. Ingira PRs e issues do GitHub diretamente em entidades estruturadas.',
         uc4_title: 'Segundo C\u00e9rebro Pessoal', uc4_desc: 'Ideias s\u00e3o capturadas, promovidas a notas permanentes e linkadas no seu grafo de conhecimento. Princ\u00edpios Zettelkasten, automatizados.',
         inst_label: 'Comece Agora', inst_title: 'Pronto em segundos',
-        inst_subtitle: 'Adicione o marketplace, instale o plugin, configure o vault. S\u00f3 isso.',
-        inst_alt: 'Depois instale o plugin: <code>/plugin install iurykrieger/claude-bedrock</code>',
-        inst_next: 'Depois execute <code>/bedrock:setup</code> para inicializar seu vault',
+        inst_subtitle: 'Tr\u00eas comandos. S\u00f3 isso.',
         sk_label: 'Skills', sk_title: 'Tudo que voc\u00ea precisa para gerenciar conhecimento',
         sk_subtitle: 'Cada skill \u00e9 um agente especializado que l\u00ea as conven\u00e7\u00f5es do vault e age de acordo.',
         sk_setup: 'Wizard interativo para criar diret\u00f3rios, templates e entidades de exemplo. Escolha um preset ou personalize.',
