@@ -1,5 +1,6 @@
 name: Release
 
+# Bumps plugin version, creates git tag and GitHub release on push to main
 on:
   push:
     branches: [main]
